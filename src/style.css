@@ -1,0 +1,210 @@
+@font-face {
+  font-family: 'Smythe';
+  src: url('/src/assets/fonts/Smythe-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter-Reg';
+  src: url('/src/assets/fonts/Inter-VariableFont_opsz\,wght.ttf');
+}
+
+@font-face {
+  font-family: 'Inter-Italic';
+  src: url('/src/assets/fonts/Inter-Italic-VariableFont_opsz\,wght.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana,
+    sans-serif;
+}
+
+h2 {
+  font-size: 2.2rem;
+  line-height: 1.68rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50.08rem;
+  margin: 3rem auto;
+}
+
+header {
+  background-image: url('images/burger-header.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 16.7rem;
+  position: sticky;
+  top: 0;
+  font-family: 'Smythe', 'Segoe UI', Tahoma, Geneva, Verdana,
+    sans-serif;
+  color: #fff;
+}
+
+.header-title {
+  font-size: 3.9rem;
+  position: absolute;
+  top: 4.6rem;
+  left: 4.6rem;
+}
+
+header > h2 {
+  position: relative;
+  top: 9rem;
+  left: 4.6rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+.card-content {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 14rem;
+  font-family: 'Smythe';
+  border-bottom: 3px solid #d2d2d2;
+}
+
+.card-img-wrap {
+  width: 7rem;
+  height: 8.9rem;
+  min-width: 7rem;
+  min-height: 8.9rem;
+  margin-right: 2rem;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+  width: 35.8rem;
+  height: 8.9rem;
+}
+
+.card-info > h2 {
+  font-size: 2.8rem;
+  line-height: 1.68rem;
+}
+
+#card-ingredients {
+  color: #8b8b8b;
+}
+
+.card-add-btn {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  min-width: 5rem;
+  min-height: 5rem;
+  border-radius: 50%;
+  font-size: 3.2rem;
+  font-family: 'Inter-Reg';
+  font-weight: lighter;
+  border: 1px solid #dedede;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Smythe', 'Segoe UI', Tahoma, Geneva, Verdana,
+    sans-serif;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.cart-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 100%;
+  margin: 4rem 0 1.5rem 0;
+}
+
+.order-item-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-item {
+  list-style: none;
+}
+
+.item-btn-wrap {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.cart-remove-btn {
+  border: none;
+  background-color: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
+  color: #bbbbbb;
+}
+
+.cart-remove-btn:hover {
+  text-decoration: underline;
+}
+
+.total-price-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.div-line {
+  width: 100%;
+  background-color: #393333;
+  height: 0.3rem;
+  margin: 1rem 0;
+}
+
+.order-btn {
+  border: none;
+  border-radius: 3px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #16db99;
+  color: #fff;
+  width: 100%;
+  height: 6rem;
+  margin: 5rem;
+}
