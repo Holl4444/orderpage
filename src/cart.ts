@@ -15,7 +15,14 @@ export function addToCart(e: MouseEvent): void {
     menuObj && currentCart.push(menuObj);
   }
 
+  markInCart(targetBtn);
   renderCart(currentCart);
+}
+
+export function markInCart(el: HTMLButtonElement) {
+  currentCart.some((cartItem) => cartItem.uuid === el.dataset.item)
+    ? el.classList.add('in-cart')
+    : el.classList.remove('in-cart');
 }
 
 export function removeFromCart(e: MouseEvent) {
@@ -23,19 +30,35 @@ export function removeFromCart(e: MouseEvent) {
   const cartObjIndx = currentCart.findIndex(
     (item) => item.uuid === target.dataset.btnId
   );
+
+  const removedItem = currentCart[cartObjIndx];
   currentCart.splice(cartObjIndx, 1);
+
+  // Find the right button to check for potential colour change
+  const itemAddBtn = document.querySelector<HTMLButtonElement>(
+    `.card-add-btn[data-item="${removedItem.uuid}"]`
+  );
+  console.log(removedItem.uuid);
+  if (itemAddBtn) {
+    markInCart(itemAddBtn);
+  }
 
   renderCart(currentCart);
 }
 
 export function resetOrder() {
   currentCart.splice(0, currentCart.length);
+
   let currentOrderContainer = document.querySelector(
     '.order-info'
   ) as HTMLElement;
 
   if (currentOrderContainer) {
-    currentOrderContainer.innerHTML = '';
+    currentOrderContainer.classList.remove('show');
+    // Wait for transition animation
+    setTimeout(() => {
+      currentOrderContainer.innerHTML = '';
+    }, 400);
   }
 }
 
@@ -122,4 +145,7 @@ export function renderCart(cartArray: menuItem[]) {
       orderBtn
     );
   }
+  requestAnimationFrame(() => {
+    currentOrderContainer.classList.add('show');
+  });
 }

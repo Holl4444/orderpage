@@ -1,4 +1,4 @@
-import { menu } from './assets/data/menu';
+import { currentCart, menu } from './assets/data/menu';
 import { addToCart } from './cart';
 import './style.css';
 
@@ -50,6 +50,7 @@ menu.forEach((card) => {
   const cardAddBtn = document.createElement('button');
   cardAddBtn.classList.add('card-add-btn');
   cardAddBtn.dataset.item = card.uuid;
+
   cardAddBtn.addEventListener('click', addToCart);
 
   const cardAddBtnImg = document.createElement('img');
