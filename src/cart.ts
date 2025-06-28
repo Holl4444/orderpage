@@ -1,4 +1,5 @@
 import { menu, currentCart, type menuItem } from './assets/data/menu';
+import { renderPaymentForm } from './form';
 import { mainContent } from './main';
 import './style.css';
 
@@ -15,6 +16,27 @@ export function addToCart(e: MouseEvent): void {
   }
 
   renderCart(currentCart);
+}
+
+export function removeFromCart(e: MouseEvent) {
+  const target = e.currentTarget as HTMLButtonElement;
+  const cartObjIndx = currentCart.findIndex(
+    (item) => item.uuid === target.dataset.btnId
+  );
+  currentCart.splice(cartObjIndx, 1);
+
+  renderCart(currentCart);
+}
+
+export function resetOrder() {
+  currentCart.splice(0, currentCart.length);
+  let currentOrderContainer = document.querySelector(
+    '.order-info'
+  ) as HTMLElement;
+
+  if (currentOrderContainer) {
+    currentOrderContainer.innerHTML = '';
+  }
 }
 
 export function renderCart(cartArray: menuItem[]) {
@@ -55,6 +77,8 @@ export function renderCart(cartArray: menuItem[]) {
       const cartRemoveBtn = document.createElement('button');
       cartRemoveBtn.classList.add('cart-remove-btn');
       cartRemoveBtn.textContent = 'remove';
+      cartRemoveBtn.dataset.btnId = item.uuid;
+      cartRemoveBtn.addEventListener('click', removeFromCart);
 
       itemBtnWrap.append(itemName, cartRemoveBtn);
 
@@ -88,7 +112,7 @@ export function renderCart(cartArray: menuItem[]) {
     const orderBtn = document.createElement('button');
     orderBtn.classList.add('order-btn');
     orderBtn.textContent = 'Complete order';
-    // orderBtn.addEventListener('click', openPaymentForm);
+    orderBtn.addEventListener('click', renderPaymentForm);
 
     currentOrderContainer.append(
       orderTitle,

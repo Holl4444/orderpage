@@ -48,10 +48,15 @@ menu.forEach((card) => {
   cardInfo.append(cardTitle, cardIngredients, cardPrice);
 
   const cardAddBtn = document.createElement('button');
-  cardAddBtn.textContent = '+';
   cardAddBtn.classList.add('card-add-btn');
   cardAddBtn.dataset.item = card.uuid;
   cardAddBtn.addEventListener('click', addToCart);
+
+  const cardAddBtnImg = document.createElement('img');
+  cardAddBtnImg.id = 'btn-img';
+  cardAddBtnImg.src = '/images/plus.svg';
+  cardAddBtnImg.alt = 'plus icon';
+  cardAddBtn.append(cardAddBtnImg);
 
   cardContent.append(cardImgWrap, cardInfo, cardAddBtn);
   cardEl.append(cardContent);
