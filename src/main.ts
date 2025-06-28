@@ -11,7 +11,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         `;
 
 export const mainContent = document.querySelector('#main-content');
-const cards = document.createElement('section');
+export const cards = document.createElement('section');
 cards.classList.add('cards');
 
 menu.forEach((card) => {
@@ -64,4 +64,8 @@ menu.forEach((card) => {
   cards.append(cardEl);
 });
 
-mainContent?.append(cards);
+// Add page height to avoid jumping on order section creation
+const tallDiv = document.createElement('div');
+tallDiv.classList.add('tall-div');
+
+mainContent?.append(cards, tallDiv);

@@ -1,6 +1,6 @@
 import { menu, currentCart, type menuItem } from './assets/data/menu';
 import { renderPaymentForm } from './form';
-import { mainContent } from './main';
+import { cards } from './main';
 import './style.css';
 
 const isCartEmpty = currentCart.length === 0;
@@ -71,7 +71,7 @@ export function renderCart(cartArray: menuItem[]) {
   if (!currentOrderContainer) {
     currentOrderContainer = document.createElement('section');
     currentOrderContainer.classList.add('order-info', cartClass);
-    mainContent?.append(currentOrderContainer);
+    cards?.append(currentOrderContainer);
   }
 
   currentOrderContainer.innerHTML = '';
@@ -137,17 +137,12 @@ export function renderCart(cartArray: menuItem[]) {
     orderBtn.textContent = 'Complete order';
     orderBtn.addEventListener('click', renderPaymentForm);
 
-    // Add page height to avoid jumping on order section creation
-    const tallDiv = document.createElement('div');
-    tallDiv.classList.add('tall-div');
-
     currentOrderContainer.append(
       orderTitle,
       cartContents,
       divLine,
       totalPriceWrap,
       orderBtn,
-      tallDiv
     );
   }
 
