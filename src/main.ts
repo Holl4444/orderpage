@@ -1,4 +1,4 @@
-import { currentCart, menu } from './assets/data/menu';
+import { menu } from './assets/data/menu';
 import { addToCart } from './cart';
 import './style.css';
 

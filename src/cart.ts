@@ -145,6 +145,12 @@ export function renderCart(cartArray: menuItem[]) {
       orderBtn
     );
   }
+
+  currentOrderContainer.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center',
+  });
+
   requestAnimationFrame(() => {
     currentOrderContainer.classList.add('show');
   });
