@@ -137,12 +137,17 @@ export function renderCart(cartArray: menuItem[]) {
     orderBtn.textContent = 'Complete order';
     orderBtn.addEventListener('click', renderPaymentForm);
 
+    // Add page height to avoid jumping on order section creation
+    const tallDiv = document.createElement('div');
+    tallDiv.classList.add('tall-div');
+
     currentOrderContainer.append(
       orderTitle,
       cartContents,
       divLine,
       totalPriceWrap,
-      orderBtn
+      orderBtn,
+      tallDiv
     );
   }
 

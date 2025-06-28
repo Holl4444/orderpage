@@ -361,6 +361,7 @@ header > h2 {
   border-radius: 3px;
   font-family: 'Smythe', Verdana, Geneva, Tahoma, sans-serif;
   color: #065f46;
+  box-shadow: 2px 3px 2px #678078, 2px 3px 4px #8e9693, 2px 3px 5px #678078;
 }
 
 .order-msg > p {
@@ -368,7 +369,7 @@ header > h2 {
 }
 
 .tall-div {
-  height: 250vh;
+  height: 10vh;
 }
 
 @media only screen and (min-width: 1200px) {
