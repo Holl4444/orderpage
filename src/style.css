@@ -56,15 +56,38 @@ p {
 }
 
 header {
-  background-image: url('images/burger-header.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100%;
   height: 16.7rem;
   position: sticky;
   top: 0;
+  z-index: 10;
   font-family: 'Smythe', Verdana, Geneva, Tahoma, sans-serif;
   color: #fff;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  transform: translate(0, 4px);
+  background: linear-gradient(
+    0.25turn,
+    #2b2020 55%,
+    #cf916a 92%,
+    #3b2b24 97%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url('images/burger-header.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 .header-title {
@@ -72,6 +95,7 @@ header {
   position: absolute;
   top: 4.6rem;
   left: 4.6rem;
+  z-index: 20;
 }
 
 header > h2 {
@@ -80,6 +104,7 @@ header > h2 {
   left: 4.6rem;
   /* Fix exceeding  the width on reset */
   max-width: fit-content;
+  z-index: 20;
   overflow: hidden;
 }
 
@@ -246,7 +271,7 @@ header > h2 {
   color: #fff;
   transition-duration: 500ms ease;
   box-shadow: 1px 3px 2px #6d6b6b, 1px 3px 5px #aaa5a5,
-  1px 3px 7px #dedede;
+    1px 3px 7px #dedede;
 }
 
 .order-btn:hover,
